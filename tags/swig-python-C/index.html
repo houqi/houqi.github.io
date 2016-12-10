@@ -84,25 +84,12 @@
 
 
 
-<meta name="description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte， 为unicode格式存储的是字符。比如说，str类型下，
-x = u&amp;#39;你好，python域编码&amp;#39;
-x --&amp;gt; u&amp;#39;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&amp;#39;
-x[0] --&amp;gt; u&amp;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python 的字符编码">
-<meta property="og:url" content="http://houqi@github.io/2016/10/13/Python-的字符编码/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="侯奇的博客">
+<meta property="og:url" content="http://houqi@github.io/tags/swig-python-C/index.html">
 <meta property="og:site_name" content="侯奇的博客">
-<meta property="og:description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte， 为unicode格式存储的是字符。比如说，str类型下，
-x = u&amp;#39;你好，python域编码&amp;#39;
-x --&amp;gt; u&amp;#39;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&amp;#39;
-x[0] --&amp;gt; u&amp;">
-<meta property="og:updated_time" content="2016-10-13T04:03:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python 的字符编码">
-<meta name="twitter:description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte， 为unicode格式存储的是字符。比如说，str类型下，
-x = u&amp;#39;你好，python域编码&amp;#39;
-x --&amp;gt; u&amp;#39;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&amp;#39;
-x[0] --&amp;gt; u&amp;">
+<meta name="twitter:title" content="侯奇的博客">
 
 
 
@@ -123,10 +110,10 @@ x[0] --&amp;gt; u&amp;">
 
 
 
-  <link rel="canonical" href="http://houqi@github.io/2016/10/13/Python-的字符编码/"/>
+  <link rel="canonical" href="http://houqi@github.io/tags/swig-python-C/"/>
 
 
-  <title> Python 的字符编码 | 侯奇的博客 </title>
+  <title> Tag: swig python C++ | 侯奇的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh">
@@ -147,7 +134,7 @@ x[0] --&amp;gt; u&amp;">
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -255,165 +242,46 @@ x[0] --&amp;gt; u&amp;">
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        swig python C++
+        <small>Tag</small>
+      </h2>
+    </div>
 
     
-      <header class="post-header">
+      
 
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2016/12/10/swig 使用说明/" itemprop="url">
               
-                Python 的字符编码
+                <span itemprop="name">swig 使用说明</span>
               
-            
-          </h1>
+            </a>
         
+      </h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-13T12:03:05+08:00" content="2016-10-13">
-              2016-10-13
-            </time>
-          </span>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-12-10T21:32:22+08:00"
+              content="2016-12-10" >
+          12-10
+        </time>
+      </div>
 
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/13/Python-的字符编码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/Python-的字符编码/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte， 为unicode格式存储的是字符。比如说，str类型下，</p>
-<pre><code class="python">x = u&#39;你好，python域编码&#39;
-x --&gt; u&#39;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&#39;
-x[0] --&gt; u&#39;\u4f60&#39;
-</code></pre>
-<p>但是如果执行print x[0]， 得到的结果将会是”你”。<br>可以将unicode编码转换为 utf-8 格式。</p>
-<pre><code class="python">y = x.encode(&#39;utf-8&#39;)
-y --&gt; &#39;\xe4\xbd\xa0\xe5\xa5\xbd\xef\xbc\x8cpython\xe5\x9f\x9f\xe7\xbc\x96\xe7\xa0\x81&#39;
-</code></pre>
-<p>如果执行print y,只会输出无意义字符。<br>上述操作的逆操作：y.decode(‘utf-8’)<br>需要注意：在python中，默认的编码是utf-8格式，在处理的时候需要注意，最好采用统一的格式。</p>
-<p>Python中检测编码的库：chardet，用法如下：</p>
-<pre><code class="python">import chardet
-chardet.detect(open(&#39;xxx&#39;, &#39;r&#39;).read())
-</code></pre>
-<p>得到类似 {‘confidence’: 0.99, ‘encoding’: ‘GB2312’} 的结果。<br>参考链接：<a href="http://www.jb51.net/article/62155.htm" target="_blank" rel="external">http://www.jb51.net/article/62155.htm</a></p>
-<p>Python中读写不同编码的库 codecs</p>
-<pre><code class="python">f = codecs.open(file_name, &#39;r&#39;, &#39;utf-8-sig&#39;)
-f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
-</code></pre>
-<p>其他操作和普通的文件读写很类似。<br>注意UTF-8 with BOM，codecs.UTF8_BOM</p>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/10/13/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/10/swig 使用说明/" rel="prev" title="swig 使用说明">
-                swig 使用说明 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-        <div class="ds-share flat" data-thread-key="2016/10/13/Python-的字符编码/"
-     data-title="Python 的字符编码"
-     data-content=""
-     data-url="http://houqi@github.io/2016/10/13/Python-的字符编码/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
+    
   </div>
-</div>
-      
-    </div>
-  </div>
+
+  
 
 
           </div>
@@ -421,14 +289,6 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/10/13/Python-的字符编码/"
-           data-title="Python 的字符编码" data-url="http://houqi@github.io/2016/10/13/Python-的字符编码/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -448,17 +308,8 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/images/me/BS-grad.jpg"
@@ -530,17 +381,6 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -637,10 +477,6 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
 
   
 

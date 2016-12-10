@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="swig python C++," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="主要利用了C++转Python的方法和技巧。
-首先，需要简单的了解C++和Python混合编程的知识。
-对于已有的C++程序，我们希望其中的部分函数可以在Python中调用。当然我们可以通过学习C++和Python的混合编程知识，自己修改函数接口，但是上述过程比较复杂。swig就是为了自动话完成上述任务的。比如，对于一个C++函数，我们希望能够在添加Python的wrap，我们可以首先构建一个sw">
+<meta name="description" content="SWIG是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。SWIG能应用于各种不同类型的语言包括常用脚本编译语言例如Perl, PHP, Python, Tcl, Ruby and PHP。支持语言列表中也包括非脚本编译语言，例如C#, Common Lisp (CLISP, Allegro CL, CFFI, UFFI), Java, Modula-3, OCA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="侯奇的博客">
+<meta property="og:title" content="swig 使用说明">
 <meta property="og:url" content="http://houqi@github.io/2016/12/10/swig 使用说明/index.html">
 <meta property="og:site_name" content="侯奇的博客">
-<meta property="og:description" content="主要利用了C++转Python的方法和技巧。
-首先，需要简单的了解C++和Python混合编程的知识。
-对于已有的C++程序，我们希望其中的部分函数可以在Python中调用。当然我们可以通过学习C++和Python的混合编程知识，自己修改函数接口，但是上述过程比较复杂。swig就是为了自动话完成上述任务的。比如，对于一个C++函数，我们希望能够在添加Python的wrap，我们可以首先构建一个sw">
-<meta property="og:updated_time" content="2016-12-10T13:25:39.000Z">
+<meta property="og:description" content="SWIG是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。SWIG能应用于各种不同类型的语言包括常用脚本编译语言例如Perl, PHP, Python, Tcl, Ruby and PHP。支持语言列表中也包括非脚本编译语言，例如C#, Common Lisp (CLISP, Allegro CL, CFFI, UFFI), Java, Modula-3, OCA">
+<meta property="og:updated_time" content="2016-12-10T13:33:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="侯奇的博客">
-<meta name="twitter:description" content="主要利用了C++转Python的方法和技巧。
-首先，需要简单的了解C++和Python混合编程的知识。
-对于已有的C++程序，我们希望其中的部分函数可以在Python中调用。当然我们可以通过学习C++和Python的混合编程知识，自己修改函数接口，但是上述过程比较复杂。swig就是为了自动话完成上述任务的。比如，对于一个C++函数，我们希望能够在添加Python的wrap，我们可以首先构建一个sw">
+<meta name="twitter:title" content="swig 使用说明">
+<meta name="twitter:description" content="SWIG是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。SWIG能应用于各种不同类型的语言包括常用脚本编译语言例如Perl, PHP, Python, Tcl, Ruby and PHP。支持语言列表中也包括非脚本编译语言，例如C#, Common Lisp (CLISP, Allegro CL, CFFI, UFFI), Java, Modula-3, OCA">
 
 
 
@@ -123,7 +117,7 @@
   <link rel="canonical" href="http://houqi@github.io/2016/12/10/swig 使用说明/"/>
 
 
-  <title>  | 侯奇的博客 </title>
+  <title> swig 使用说明 | 侯奇的博客 </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh">
@@ -273,7 +267,7 @@
             
             
               
-                
+                swig 使用说明
               
             
           </h1>
@@ -285,7 +279,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-10T21:25:39+08:00" content="2016-12-10">
+            <time itemprop="dateCreated" datetime="2016-12-10T21:32:22+08:00" content="2016-12-10">
               2016-12-10
             </time>
           </span>
@@ -320,7 +314,10 @@
       
 
       
-        <p>主要利用了C++转Python的方法和技巧。</p>
+        <blockquote>
+<p>SWIG是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。SWIG能应用于各种不同类型的语言包括常用脚本编译语言例如Perl, PHP, Python, Tcl, Ruby and PHP。支持语言列表中也包括非脚本编译语言，例如C#, Common Lisp (CLISP, Allegro CL, CFFI, UFFI), Java, Modula-3, OCAML以及R，甚至是编译器或者汇编的计划应用（Guile, MzScheme, Chicken）。SWIG普遍应用于创建高级语言解析或汇编程序环境，用户接口，作为一种用来测试C/C++或进行原型设计的工具。SWIG还能够导出XML或Lisp s-expressions格式的解析树。SWIG可以被自由使用，发布，修改用于商业或非商业中。</p>
+</blockquote>
+<p>主要利用了C++转Python的方法和技巧。</p>
 <p>首先，需要简单的了解C++和Python混合编程的知识。</p>
 <p>对于已有的C++程序，我们希望其中的部分函数可以在Python中调用。当然我们可以通过学习C++和Python的混合编程知识，自己修改函数接口，但是上述过程比较复杂。swig就是为了自动话完成上述任务的。比如，对于一个C++函数，我们希望能够在添加Python的wrap，我们可以首先构建一个swig脚本，在脚本中注明我们希望调用的函数或者数据结构，然后swig就可以自动化的完成函数接口的wrap工作。</p>
 <p>经过测试，在对C++程序添加Python的wrap时，swig可以很好的完成工作，但也存在一些问题。</p>
@@ -421,7 +418,7 @@ pkg-config --libs python3
 -DPYTHON_LIBRARIES=/usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib \
 ..
 </code></pre><h3 id="类的静态数组变量"><a href="#类的静态数组变量" class="headerlink" title="类的静态数组变量"></a>类的静态数组变量</h3><p>swig 好像不支持类的静态数组变量。</p>
-<h1 id="swig-的详细说明文件"><a href="#swig-的详细说明文件" class="headerlink" title="swig 的详细说明文件"></a>swig 的详细说明文件</h1><p>Swig 的参考资料：</p>
+<h2 id="swig-的详细说明文件"><a href="#swig-的详细说明文件" class="headerlink" title="swig 的详细说明文件"></a>swig 的详细说明文件</h2><p>Swig 的参考资料：</p>
 <ul>
 <li><a href="http://www.swig.org/translations/chinese/tutorial.html" target="_blank" rel="external">http://www.swig.org/translations/chinese/tutorial.html</a></li>
 <li><a href="http://www.swig.org/Doc1.3/SWIGPlus.html" target="_blank" rel="external">http://www.swig.org/Doc1.3/SWIGPlus.html</a></li>
@@ -447,6 +444,12 @@ pkg-config --libs python3
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/swig-python-C/" rel="tag">#swig python C++</a>
+          
+        </div>
       
 
       
@@ -475,7 +478,7 @@ pkg-config --libs python3
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/12/10/swig 使用说明/"
-     data-title=""
+     data-title="swig 使用说明"
      data-content=""
      data-url="http://houqi@github.io/2016/12/10/swig 使用说明/">
   <div class="ds-share-inline">
@@ -505,7 +508,7 @@ pkg-config --libs python3
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/12/10/swig 使用说明/"
-           data-title="" data-url="http://houqi@github.io/2016/12/10/swig 使用说明/">
+           data-title="swig 使用说明" data-url="http://houqi@github.io/2016/12/10/swig 使用说明/">
       </div>
     
   </div>
@@ -557,6 +560,13 @@ pkg-config --libs python3
 
           
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -611,7 +621,7 @@ pkg-config --libs python3
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tutorial"><span class="nav-number">1.</span> <span class="nav-text">Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-的依赖关系"><span class="nav-number">2.</span> <span class="nav-text">swig 的依赖关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略部分函数"><span class="nav-number">3.</span> <span class="nav-text">忽略部分函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名部分函数"><span class="nav-number">4.</span> <span class="nav-text">重命名部分函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enum-的使用"><span class="nav-number">5.</span> <span class="nav-text">enum 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-可能遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">swig 可能遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#so文件的命名问题"><span class="nav-number">6.1.</span> <span class="nav-text">so文件的命名问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的顺序问题"><span class="nav-number">6.2.</span> <span class="nav-text">文件的顺序问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-的版本问题"><span class="nav-number">6.3.</span> <span class="nav-text">python 的版本问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的静态数组变量"><span class="nav-number">6.4.</span> <span class="nav-text">类的静态数组变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swig-的详细说明文件"><span class="nav-number"></span> <span class="nav-text">swig 的详细说明文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-opencv"><span class="nav-number">1.</span> <span class="nav-text">swig + opencv</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tutorial"><span class="nav-number">1.</span> <span class="nav-text">Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-的依赖关系"><span class="nav-number">2.</span> <span class="nav-text">swig 的依赖关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略部分函数"><span class="nav-number">3.</span> <span class="nav-text">忽略部分函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名部分函数"><span class="nav-number">4.</span> <span class="nav-text">重命名部分函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enum-的使用"><span class="nav-number">5.</span> <span class="nav-text">enum 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-可能遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">swig 可能遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#so文件的命名问题"><span class="nav-number">6.1.</span> <span class="nav-text">so文件的命名问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的顺序问题"><span class="nav-number">6.2.</span> <span class="nav-text">文件的顺序问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-的版本问题"><span class="nav-number">6.3.</span> <span class="nav-text">python 的版本问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的静态数组变量"><span class="nav-number">6.4.</span> <span class="nav-text">类的静态数组变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-的详细说明文件"><span class="nav-number">7.</span> <span class="nav-text">swig 的详细说明文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-opencv"><span class="nav-number">8.</span> <span class="nav-text">swig + opencv</span></a></li></ol></div>
             
           </div>
         </section>
