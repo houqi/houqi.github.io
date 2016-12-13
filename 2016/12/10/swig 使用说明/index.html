@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next muse use-motion" lang="zh">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="python,swig,C++," />
@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -90,37 +90,47 @@
 <meta property="og:url" content="http://houqi@github.io/2016/12/10/swig 使用说明/index.html">
 <meta property="og:site_name" content="侯奇的博客">
 <meta property="og:description" content="SWIG是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。SWIG能应用于各种不同类型的语言包括常用脚本编译语言例如Perl, PHP, Python, Tcl, Ruby and PHP。支持语言列表中也包括非脚本编译语言，例如C#, Common Lisp (CLISP, Allegro CL, CFFI, UFFI), Java, Modula-3, OCA">
-<meta property="og:updated_time" content="2016-12-13T02:06:48.000Z">
+<meta property="og:updated_time" content="2016-12-13T03:16:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swig 使用说明">
 <meta name="twitter:description" content="SWIG是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。SWIG能应用于各种不同类型的语言包括常用脚本编译语言例如Perl, PHP, Python, Tcl, Ruby and PHP。支持语言列表中也包括非脚本编译语言，例如C#, Common Lisp (CLISP, Allegro CL, CFFI, UFFI), Java, Modula-3, OCA">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    root: '/',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://houqi@github.io/2016/12/10/swig 使用说明/"/>
+
+
+
 
 
   <title> swig 使用说明 | 侯奇的博客 </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
 
   
 
@@ -141,8 +151,8 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta custom-logo">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
@@ -175,27 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
+            Startseite
           </a>
         </li>
       
@@ -205,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -219,23 +209,38 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            公益404
+            Suche
           </a>
         </li>
-      
-
       
     </ul>
   
 
   
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
 </nav>
+
+
 
  </div>
     </header>
@@ -250,13 +255,26 @@
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://houqi@github.io/2016/12/10/swig 使用说明/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="HouQi">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/images/me/BS-grad.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="侯奇的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="侯奇的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -275,13 +293,19 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-12-10T21:32:22+08:00" content="2016-12-10">
-              2016-12-10
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-10T21:32:22+08:00">
+                2016-12-10
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -289,9 +313,9 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/12/10/swig 使用说明/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/swig 使用说明/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/swig 使用说明/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -303,6 +327,9 @@
           
 
           
+
+          
+
         </div>
       </header>
     
@@ -322,102 +349,44 @@
 <p>对于已有的C++程序，我们希望其中的部分函数可以在Python中调用。当然我们可以通过学习C++和Python的混合编程知识，自己修改函数接口，但是上述过程比较复杂。swig就是为了自动话完成上述任务的。比如，对于一个C++函数，我们希望能够在添加Python的wrap，我们可以首先构建一个swig脚本，在脚本中注明我们希望调用的函数或者数据结构，然后swig就可以自动化的完成函数接口的wrap工作。</p>
 <p>经过测试，在对C++程序添加Python的wrap时，swig可以很好的完成工作，但也存在一些问题。</p>
 <h2 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h2><p>在使用swig 的过程中，首先，准备swig文件。一般以<code>.i</code>结束。下面是一个简单的swig文件<code>test.i</code>。</p>
-<pre><code>%module test
-
-%header %{
-#include &quot;test1.h&quot;
-#include &quot;test2.h&quot;
-%}
-
-%ignore operator Point::operator &lt;&lt;;
-%rename (__add__) Point::operator +;
-%rename (__sub__) operator -;
-%include &quot;test1.h&quot;
-%include &quot;test2.h&quot;
-</code></pre><p><strong>注意：rename和ignore应该放置在%include 的前面，否则，rename和ignore并不会生效。</strong></p>
+<figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="perl">%module test</span><span class="xml"></span></div><div class="line"><span class="perl"></span></div><div class="line">%header %&#123;<span class="xml"></span></div><div class="line">#include "test1.h"</div><div class="line">#include "test2.h"</div><div class="line"><span class="perl">%&#125;</span><span class="xml"></span></div><div class="line"><span class="perl"></span></div><div class="line">%ignore operator Point::operator &lt;&lt;;<span class="xml"></span></div><div class="line"><span class="perl">%rename (__add_<span class="number">_</span>) Point::operator +;</span><span class="xml"></span></div><div class="line"><span class="perl">%rename (__sub_<span class="number">_</span>) operator -;</span><span class="xml"></span></div><div class="line"><span class="perl">%include <span class="string">"test1.h"</span></span><span class="xml"></span></div><div class="line"><span class="perl">%include <span class="string">"test2.h"</span></span><span class="xml"></span></div></pre></td></tr></table></figure>
+<p><strong>注意：rename和ignore应该放置在%include 的前面，否则，rename和ignore并不会生效。</strong></p>
 <p>假设 <code>test1.h</code> 文件的内容如下所示：</p>
-<pre><code class="c++">class Point {
-public:
-    Point operator + (const Point &amp; other);
-    ostream operator &lt;&lt; (ostream &amp;os);
-    Point(int x, int y);
-private:
-    int x;
-    int y;
-}
-
-Point operator -(const Point &amp;p1, const Point&amp;p2);
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Point &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Point <span class="keyword">operator</span> + (<span class="keyword">const</span> Point &amp; other);</div><div class="line">    ostream <span class="keyword">operator</span> &lt;&lt; (ostream &amp;os);</div><div class="line">    Point(<span class="keyword">int</span> x, <span class="keyword">int</span> y);</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Point <span class="keyword">operator</span> -(<span class="keyword">const</span> Point &amp;p1, <span class="keyword">const</span> Point&amp;p2);</div></pre></td></tr></table></figure>
 <p>其次，执行swig命令，生成swig的wrapper，</p>
-<pre><code>swig -c++ -python test.i
-</code></pre><p>执行该步骤后，在当前目录下生成两个文件：<code>test.py</code>，<code>test_wrap.cxx</code>。然后编译相关的函数：</p>
-<pre><code>g++ -shared -fpic `pkg-config --cflags opencv` test_wrap.cxx test1.cpp test2.cpp -o _test.so `pkg-config --libs python`
-</code></pre><p>注意：生成的so文件，命名为”<em>test.so”，即module的名称加上前缀的`</em>`。该步骤执行完成后，理论上当前目录下应该生成 _test.so 文件。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swig -c++ -python <span class="keyword">test</span>.<span class="built_in">i</span></div></pre></td></tr></table></figure>
+<p>执行该步骤后，在当前目录下生成两个文件：<code>test.py</code>，<code>test_wrap.cxx</code>。然后编译相关的函数：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g++ -shared -fpic `pkg-config --cflags opencv` test_wrap<span class="selector-class">.cxx</span> test1<span class="selector-class">.cpp</span> test2<span class="selector-class">.cpp</span> -o _test<span class="selector-class">.so</span> `pkg-config --libs python`</div></pre></td></tr></table></figure>
+<p>注意：生成的so文件，命名为”<em>test.so”，即module的名称加上前缀的`</em>`。该步骤执行完成后，理论上当前目录下应该生成 _test.so 文件。</p>
 <p>在当前目录下，运行测试文件test_swig.py：</p>
-<pre><code class="python">from test import *
-p1 = Point(1, 2)
-p2 = Point(3, 4)
-p3 = p1 + p2
-p4 = p2 - p1
-</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> test <span class="keyword">import</span> *</div><div class="line">p1 = Point(<span class="number">1</span>, <span class="number">2</span>)</div><div class="line">p2 = Point(<span class="number">3</span>, <span class="number">4</span>)</div><div class="line">p3 = p1 + p2</div><div class="line">p4 = p2 - p1</div></pre></td></tr></table></figure>
 <h2 id="swig-的依赖关系"><a href="#swig-的依赖关系" class="headerlink" title="swig 的依赖关系"></a>swig 的依赖关系</h2><p>swig 的过程如果需要额外的头文件依赖，需要在命令行中加以说明：</p>
-<pre><code>swig -c++ -python `pkg-config --cflags opencv` test.i
-</code></pre><p>以及，在编译的时候也有可能需要指明额外的依赖，包括头文件和额外的库文件：</p>
-<pre><code>g++ -shared -fpic `pkg-config --cflags python opencv` test_wrap.cxx test1.cpp test2.cpp -o _test.so `pkg-config --libs opencv python`
-</code></pre><h2 id="忽略部分函数"><a href="#忽略部分函数" class="headerlink" title="忽略部分函数"></a>忽略部分函数</h2><p>在某些情况下，可能C++的部分函数和Python不完全兼容，为此，我们需要跳过某些函数。比如，流的重定向作用符；</p>
-<pre><code class="swig">%ignore FlyPoints::&lt;&lt;;
-</code></pre>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">swig -c++ -python `pkg-config --cflags opencv` test.i</div></pre></td></tr></table></figure>
+<p>以及，在编译的时候也有可能需要指明额外的依赖，包括头文件和额外的库文件：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g++ -shared -fpic `pkg-config --cflags python opencv` test_wrap<span class="selector-class">.cxx</span> test1<span class="selector-class">.cpp</span> test2<span class="selector-class">.cpp</span> -o _test<span class="selector-class">.so</span> `pkg-config --libs opencv python`</div></pre></td></tr></table></figure>
+<h2 id="忽略部分函数"><a href="#忽略部分函数" class="headerlink" title="忽略部分函数"></a>忽略部分函数</h2><p>在某些情况下，可能C++的部分函数和Python不完全兼容，为此，我们需要跳过某些函数。比如，流的重定向作用符；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%ignore FlyPoints::&lt;&lt;;</div></pre></td></tr></table></figure>
 <p>需要说明的是，注意swig中的命名空间。</p>
 <p>参考链接：<br><a href="http://stackoverflow.com/questions/22518497/ignore-redefinition-of-operator-in-swig-interface" target="_blank" rel="external">http://stackoverflow.com/questions/22518497/ignore-redefinition-of-operator-in-swig-interface</a></p>
 <h2 id="重命名部分函数"><a href="#重命名部分函数" class="headerlink" title="重命名部分函数"></a>重命名部分函数</h2><p>在某些情况下，我们希望重命名部分函数，或者变量名。比如：</p>
-<pre><code class="swig">%rename (__add__) Points::operator +;
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%rename (__add__) Points::operator +;</div></pre></td></tr></table></figure>
 <h2 id="enum-的使用"><a href="#enum-的使用" class="headerlink" title="enum 的使用"></a>enum 的使用</h2><p>C类型的enum直接被处理成了Python中的全局变量；C++ 11类型的 enum class 类型在引用时被mangle了。</p>
-<pre><code class="c++">enum Weekday {
-    Mon, Tus, Wed, Thr, Fri, Sat, Sun
-};
-// Python =&gt; Mon, Tue
-
-enum class Weekday {
-    Mon, Tus, Wed, Thr, Fri, Sat, Sun
-};
-// Python =&gt; Weekday_Mon, Weekday_Tue
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Weekday &#123;</div><div class="line">    Mon, Tus, Wed, Thr, Fri, Sat, Sun</div><div class="line">&#125;;</div><div class="line"><span class="comment">// Python =&gt; Mon, Tue</span></div><div class="line"></div><div class="line"><span class="keyword">enum</span> <span class="keyword">class</span> Weekday &#123;</div><div class="line">    Mon, Tus, Wed, Thr, Fri, Sat, Sun</div><div class="line">&#125;;</div><div class="line"><span class="comment">// Python =&gt; Weekday_Mon, Weekday_Tue</span></div></pre></td></tr></table></figure>
 <p>参考链接：<br><a href="http://stackoverflow.com/questions/13269393/how-to-enumerate-enum-members-using-swig" target="_blank" rel="external">http://stackoverflow.com/questions/13269393/how-to-enumerate-enum-members-using-swig</a></p>
 <h2 id="swig-可能遇到的问题"><a href="#swig-可能遇到的问题" class="headerlink" title="swig 可能遇到的问题"></a>swig 可能遇到的问题</h2><h3 id="so文件的命名问题"><a href="#so文件的命名问题" class="headerlink" title="so文件的命名问题"></a>so文件的命名问题</h3><p>so 文件的明明需要和module一致，<code>_$(module).so</code>。否则在python中，执行import可能会报错：</p>
-<pre><code>----&gt; 1 import FlyLib
-ImportError: dynamic module does not define init function (initFlyLib)
-</code></pre><h3 id="文件的顺序问题"><a href="#文件的顺序问题" class="headerlink" title="文件的顺序问题"></a>文件的顺序问题</h3><p>比如，在<code>test1.h</code>文件中定义enum类型：</p>
-<pre><code class="c++">enum Weekday {
-    Mon, Tue, Wed, Thr, Fri, Sat, Sun
-};
-</code></pre>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">----&gt; 1 import FlyLib</span></div><div class="line">ImportError: dynamic <span class="built_in">module</span> does <span class="keyword">not</span> define init <span class="function"><span class="keyword">function</span> <span class="params">(initFlyLib)</span></span></div></pre></td></tr></table></figure>
+<h3 id="文件的顺序问题"><a href="#文件的顺序问题" class="headerlink" title="文件的顺序问题"></a>文件的顺序问题</h3><p>比如，在<code>test1.h</code>文件中定义enum类型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> Weekday &#123;</div><div class="line">    Mon, Tue, Wed, Thr, Fri, Sat, Sun</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>在 <code>test2.h</code> 中定义函数:</p>
-<pre><code class="c++">#include &quot;test1.h&quot;
-bool isWeekends(Weekday day = Mon);
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"test1.h"</span></span></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isWeekends</span><span class="params">(Weekday day = Mon)</span></span>;</div></pre></td></tr></table></figure>
 <p>则在<code>test.i</code>文件中，<code>test1.h</code>最好放在<code>test2.h</code>文件前，否则，在python程序import时，会出现错误：</p>
-<pre><code>----&gt; 1 import test
-
-/Users/houqi/test.py in &lt;module&gt;()
-    100
-    101
---&gt; 102 def isWeekends(day=Mon):
-    103     return _test.isWeekends(day)
-    104 isWeekends = _test.isWeekends
-
-NameError: name &#39;Mon&#39; is not defined
-</code></pre><h3 id="python-的版本问题"><a href="#python-的版本问题" class="headerlink" title="python 的版本问题"></a>python 的版本问题</h3><p>Python有Python2和Python3两个版本，在编译的时候需要分别指定。</p>
-<pre><code>pkg-config --libs python2
-pkg-config --libs python3
-</code></pre><p>以及，可能存在多个同一版本的python程序，比如，在Mac系统下，系统自带的Python和brew安装的Python以及Anaconda自带的Python。如果编译过程中指定的Python库和运行的Python程序不一致，在import时可能会出错。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">----&gt; <span class="number">1</span> import test</div><div class="line"></div><div class="line">/Users/houqi/test.py <span class="keyword">in</span> &lt;<span class="keyword">module</span>&gt;()</div><div class="line">    <span class="number">100</span></div><div class="line">    <span class="number">101</span></div><div class="line">--&gt; <span class="number">102</span> <span class="function"><span class="keyword">def</span> <span class="title">isWeekends</span></span>(day=Mon):</div><div class="line">    <span class="number">103</span>     <span class="keyword">return</span> _test.isWeekends(day)</div><div class="line">    <span class="number">104</span> isWeekends = _test.isWeekends</div><div class="line"></div><div class="line"><span class="symbol">NameError:</span> name <span class="string">'Mon'</span> is <span class="keyword">not</span> <span class="keyword">defined</span></div></pre></td></tr></table></figure>
+<h3 id="python-的版本问题"><a href="#python-的版本问题" class="headerlink" title="python 的版本问题"></a>python 的版本问题</h3><p>Python有Python2和Python3两个版本，在编译的时候需要分别指定。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pkg-config <span class="comment">--libs python2</span></div><div class="line">pkg-config <span class="comment">--libs python3</span></div></pre></td></tr></table></figure>
+<p>以及，可能存在多个同一版本的python程序，比如，在Mac系统下，系统自带的Python和brew安装的Python以及Anaconda自带的Python。如果编译过程中指定的Python库和运行的Python程序不一致，在import时可能会出错。</p>
 <p>在cmake下，可以通过命令行参数指定：</p>
-<pre><code>cmake \
--DTEST_PYTHON_VERSION=2 \
--DPYTHON_EXECUTABLE:FILEPATH=/usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/bin/python \
--DPYTHON_LIBRARIES=/usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib \
-..
-</code></pre><h3 id="类的静态数组变量"><a href="#类的静态数组变量" class="headerlink" title="类的静态数组变量"></a>类的静态数组变量</h3><p>swig 好像不支持类的静态数组变量。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cmake \</div><div class="line">-DTEST_PYTHON_VERSION=<span class="number">2</span> \</div><div class="line">-<span class="symbol">DPYTHON_EXECUTABLE:</span>FILEPATH=<span class="regexp">/usr/local</span><span class="regexp">/Cellar/python</span><span class="regexp">/2.7.12_2/</span>Frameworks/Python.framework/Versions/<span class="number">2.7</span>/bin/python \</div><div class="line">-DPYTHON_LIBRARIES=<span class="regexp">/usr/local</span><span class="regexp">/Cellar/python</span><span class="regexp">/2.7.12_2/</span>Frameworks/Python.framework/Versions/<span class="number">2.7</span>/<span class="class"><span class="keyword">lib</span>/<span class="title">libpython2</span>.7.<span class="title">dylib</span> \</span></div><div class="line">..</div></pre></td></tr></table></figure>
+<h3 id="类的静态数组变量"><a href="#类的静态数组变量" class="headerlink" title="类的静态数组变量"></a>类的静态数组变量</h3><p>swig 好像不支持类的静态数组变量。</p>
 <h2 id="swig-的详细说明文件"><a href="#swig-的详细说明文件" class="headerlink" title="swig 的详细说明文件"></a>swig 的详细说明文件</h2><p>Swig 的参考资料：</p>
 <ul>
 <li><a href="http://www.swig.org/translations/chinese/tutorial.html" target="_blank" rel="external">http://www.swig.org/translations/chinese/tutorial.html</a></li>
@@ -443,15 +412,16 @@ pkg-config --libs python3
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag">#python</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/swig/" rel="tag">#swig</a>
+            <a href="/tags/swig/" rel="tag"># swig</a>
           
-            <a href="/tags/C/" rel="tag">#C++</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -465,6 +435,8 @@ pkg-config --libs python3
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -542,16 +514,16 @@ pkg-config --libs python3
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/images/me/BS-grad.jpg"
                alt="HouQi" />
@@ -562,24 +534,24 @@ pkg-config --libs python3
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">categories</span>
-              </a>
+                <span class="site-state-item-name">Kategorien</span>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -627,19 +599,27 @@ pkg-config --libs python3
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tutorial"><span class="nav-number">1.</span> <span class="nav-text">Tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-的依赖关系"><span class="nav-number">2.</span> <span class="nav-text">swig 的依赖关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略部分函数"><span class="nav-number">3.</span> <span class="nav-text">忽略部分函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名部分函数"><span class="nav-number">4.</span> <span class="nav-text">重命名部分函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enum-的使用"><span class="nav-number">5.</span> <span class="nav-text">enum 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-可能遇到的问题"><span class="nav-number">6.</span> <span class="nav-text">swig 可能遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#so文件的命名问题"><span class="nav-number">6.1.</span> <span class="nav-text">so文件的命名问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的顺序问题"><span class="nav-number">6.2.</span> <span class="nav-text">文件的顺序问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-的版本问题"><span class="nav-number">6.3.</span> <span class="nav-text">python 的版本问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的静态数组变量"><span class="nav-number">6.4.</span> <span class="nav-text">类的静态数组变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-的详细说明文件"><span class="nav-number">7.</span> <span class="nav-text">swig 的详细说明文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swig-opencv"><span class="nav-number">8.</span> <span class="nav-text">swig + opencv</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
       
 
     </div>
@@ -662,16 +642,18 @@ pkg-config --libs python3
   <span class="author" itemprop="copyrightHolder">HouQi</span>
 </div>
 
+
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
+
 
         
 
@@ -705,46 +687,46 @@ pkg-config --libs python3
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -769,7 +751,8 @@ pkg-config --libs python3
 
   
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -778,34 +761,165 @@ pkg-config --libs python3
 
 
 
-  
-  
+
 
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
     });
   </script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
 
   
+
+  
+
 
 </body>
 </html>

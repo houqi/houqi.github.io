@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next muse use-motion" lang="zh">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,73 +63,80 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="python," />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte， 为unicode格式存储的是字符。比如说，str类型下，
-x = u&amp;#39;你好，python域编码&amp;#39;
-x --&amp;gt; u&amp;#39;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&amp;#39;
-x[0] --&amp;gt; u&amp;">
+<meta name="description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte，为unicode格式存储的是字符。比如说，str类型下，
+123x = u&apos;你好，python域编码&apos;x --&amp;gt; u&apos;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&apos;x[0] --&amp;gt; u&apos;\u4f60&apos;
+但是如果执行pr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 的字符编码">
 <meta property="og:url" content="http://houqi@github.io/2016/10/13/Python-的字符编码/index.html">
 <meta property="og:site_name" content="侯奇的博客">
-<meta property="og:description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte， 为unicode格式存储的是字符。比如说，str类型下，
-x = u&amp;#39;你好，python域编码&amp;#39;
-x --&amp;gt; u&amp;#39;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&amp;#39;
-x[0] --&amp;gt; u&amp;">
-<meta property="og:updated_time" content="2016-10-13T04:03:23.000Z">
+<meta property="og:description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte，为unicode格式存储的是字符。比如说，str类型下，
+123x = u&apos;你好，python域编码&apos;x --&amp;gt; u&apos;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&apos;x[0] --&amp;gt; u&apos;\u4f60&apos;
+但是如果执行pr">
+<meta property="og:updated_time" content="2016-12-13T03:11:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 的字符编码">
-<meta name="twitter:description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte， 为unicode格式存储的是字符。比如说，str类型下，
-x = u&amp;#39;你好，python域编码&amp;#39;
-x --&amp;gt; u&amp;#39;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&amp;#39;
-x[0] --&amp;gt; u&amp;">
+<meta name="twitter:description" content="Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte，为unicode格式存储的是字符。比如说，str类型下，
+123x = u&apos;你好，python域编码&apos;x --&amp;gt; u&apos;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&apos;x[0] --&amp;gt; u&apos;\u4f60&apos;
+但是如果执行pr">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    root: '/',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
       author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://houqi@github.io/2016/10/13/Python-的字符编码/"/>
+
+
+
 
 
   <title> Python 的字符编码 | 侯奇的博客 </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
 
   
 
@@ -150,8 +157,8 @@ x[0] --&amp;gt; u&amp;">
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta custom-logo">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
@@ -184,27 +191,7 @@ x[0] --&amp;gt; u&amp;">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
+            Startseite
           </a>
         </li>
       
@@ -214,7 +201,7 @@ x[0] --&amp;gt; u&amp;">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -228,23 +215,38 @@ x[0] --&amp;gt; u&amp;">
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            公益404
+            Suche
           </a>
         </li>
-      
-
       
     </ul>
   
 
   
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
 </nav>
+
+
 
  </div>
     </header>
@@ -259,13 +261,26 @@ x[0] --&amp;gt; u&amp;">
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://houqi@github.io/2016/10/13/Python-的字符编码/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="HouQi">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/images/me/BS-grad.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="侯奇的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="侯奇的博客" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -284,13 +299,19 @@ x[0] --&amp;gt; u&amp;">
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-10-13T12:03:05+08:00" content="2016-10-13">
-              2016-10-13
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-13T12:03:05+08:00">
+                2016-10-13
+              </time>
+            
+
+            
+
+            
           </span>
 
           
@@ -298,9 +319,9 @@ x[0] --&amp;gt; u&amp;">
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
                 <a href="/2016/10/13/Python-的字符编码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/Python-的字符编码/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/Python-的字符编码/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -312,6 +333,9 @@ x[0] --&amp;gt; u&amp;">
           
 
           
+
+          
+
         </div>
       </header>
     
@@ -323,26 +347,21 @@ x[0] --&amp;gt; u&amp;">
       
 
       
-        <p>Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte， 为unicode格式存储的是字符。比如说，str类型下，</p>
-<pre><code class="python">x = u&#39;你好，python域编码&#39;
-x --&gt; u&#39;\u4f60\u597d\uff0cpython\u57df\u7f16\u7801&#39;
-x[0] --&gt; u&#39;\u4f60&#39;
-</code></pre>
-<p>但是如果执行print x[0]， 得到的结果将会是”你”。<br>可以将unicode编码转换为 utf-8 格式。</p>
-<pre><code class="python">y = x.encode(&#39;utf-8&#39;)
-y --&gt; &#39;\xe4\xbd\xa0\xe5\xa5\xbd\xef\xbc\x8cpython\xe5\x9f\x9f\xe7\xbc\x96\xe7\xa0\x81&#39;
-</code></pre>
-<p>如果执行print y,只会输出无意义字符。<br>上述操作的逆操作：y.decode(‘utf-8’)<br>需要注意：在python中，默认的编码是utf-8格式，在处理的时候需要注意，最好采用统一的格式。</p>
-<p>Python中检测编码的库：chardet，用法如下：</p>
-<pre><code class="python">import chardet
-chardet.detect(open(&#39;xxx&#39;, &#39;r&#39;).read())
-</code></pre>
-<p>得到类似 {‘confidence’: 0.99, ‘encoding’: ‘GB2312’} 的结果。<br>参考链接：<a href="http://www.jb51.net/article/62155.htm" target="_blank" rel="external">http://www.jb51.net/article/62155.htm</a></p>
+        <p>Python默认使用的是UTF-8编码格式。存储方式有两种：str 和 unicode 编码。其中，str的存储单位为 byte，为unicode格式存储的是字符。比如说，str类型下，</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x = <span class="string">u'你好，python域编码'</span></div><div class="line">x --&gt; <span class="string">u'\u4f60\u597d\uff0cpython\u57df\u7f16\u7801'</span></div><div class="line">x[<span class="number">0</span>] --&gt; <span class="string">u'\u4f60'</span></div></pre></td></tr></table></figure>
+<p>但是如果执行<code>print x[0]</code>， 得到的结果将会是”你”。<br>可以将unicode编码转换为 utf-8 格式。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">y = x.encode('utf-8')</div><div class="line">y --&gt; '\xe4\xbd\xa0\xe5\xa5\xbd\xef\xbc\x8cpython\xe5\x9f\x9f\xe7\xbc\x96\xe7\xa0\x81'</div></pre></td></tr></table></figure>
+<p>如果执行<code>print y</code>,只会输出无意义字符。<br>上述操作的逆操作：<code>y.decode(&#39;utf-8&#39;)</code><br>需要注意：在python中，默认的编码是<code>utf-8</code>格式，在处理的时候需要注意，最好采用统一的格式。</p>
+<p>Python中检测编码的库：<code>chardet</code>，用法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> chardet</div><div class="line">chardet.detect(open(<span class="string">'xxx'</span>, <span class="string">'r'</span>).read())</div></pre></td></tr></table></figure>
+<p>得到类似 <code>{&#39;confidence&#39;: 0.99, &#39;encoding&#39;: &#39;GB2312&#39;}</code> 的结果。</p>
+<p>参考链接：</p>
+<ul>
+<li><a href="http://www.jb51.net/article/62155.htm" target="_blank" rel="external">http://www.jb51.net/article/62155.htm</a></li>
+</ul>
 <p>Python中读写不同编码的库 codecs</p>
-<pre><code class="python">f = codecs.open(file_name, &#39;r&#39;, &#39;utf-8-sig&#39;)
-f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
-</code></pre>
-<p>其他操作和普通的文件读写很类似。<br>注意UTF-8 with BOM，codecs.UTF8_BOM</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f = codecs.open(file_name, <span class="string">'r'</span>, <span class="string">'utf-8-sig'</span>)</div><div class="line">f = codecs.open(file_name, <span class="string">'w'</span>, <span class="string">'gb2312'</span>)</div></pre></td></tr></table></figure>
+<p>其他操作和普通的文件读写很类似。<br>注意<code>UTF-8 with BOM</code>，<code>codecs.UTF8_BOM</code></p>
 
       
     </div>
@@ -360,8 +379,15 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
 
       
     </div>
+
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
       
 
       
@@ -373,6 +399,8 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -448,18 +476,9 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/images/me/BS-grad.jpg"
                alt="HouQi" />
@@ -470,24 +489,24 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-name">Artikel</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">categories</span>
-              </a>
+                <span class="site-state-item-name">Kategorien</span>
+              
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -535,19 +554,11 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
         
         
 
+        
+
+
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -570,16 +581,18 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
   <span class="author" itemprop="copyrightHolder">HouQi</span>
 </div>
 
+
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
   Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
+
 
         
 
@@ -613,46 +626,46 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -677,7 +690,8 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
 
   
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -686,34 +700,165 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
 
 
 
-  
-  
+
 
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
     });
   </script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
 
   
+
+  
+
 
 </body>
 </html>
