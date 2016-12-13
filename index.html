@@ -266,6 +266,159 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/13/Comparison to None will result in an elementwise object/" itemprop="url">
+                  Comparison to `None` will result in an elementwise object
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-12-13T00:00:00+08:00" content="2016-12-13">
+              2016-12-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/13/Comparison to None will result in an elementwise object/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/13/Comparison to None will result in an elementwise object/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>numpy</code>数组和<code>None</code>进行比较时，可能导致意外的结果：</p>
+<pre><code>import numpy as np
+np.array([0,1,2]) == None
+&gt; False
+&gt; FutureWarning: comparison to `None` will result in an elementwise object comparison in the future.
+</code></pre><p>在此，我们应该选用<code>is</code>操作符。</p>
+<p>You are looking for is:</p>
+<pre><code class="python">if a is None:
+    a = something
+else:
+    # TODO
+</code></pre>
+<p>下面是关于<code>is</code>的解释：</p>
+<blockquote>
+<p>The problem is that, by using the <code>==</code> operator, if the input element a is a numpy array, numpy will try to perform an element wise comparison and tell you that you cannot compare it.</p>
+<p>For a a numpy array, <code>a == None</code> gives error, <code>np.all(a == None)</code> doesn’t (but does not do what you expect). Instead <code>a is None</code> will work regardless the data type of <code>a</code>.</p>
+<p>From a java point of view, the python’s == would trigger java’s .equals, which in numpy is overrided to perform a element-wise check. Python’s is would be equivalent to check for reference in java (similar to using == with strings). However, for strings in python (i.e. a = ‘hello’; b = ‘hello’), the a is b would still return true, as both of them are the same constant (‘hello’)</p>
+</blockquote>
+<p>除了 <code>==</code> 外，numpy还重载了<code>__contains__</code>即<code>in</code>运算符。下面是解释：</p>
+<blockquote>
+<p>The future warning happens when you do something like this:</p>
+<p><code>numpy.asarray([1,2,3,4]) == None</code></p>
+<p>Which currently returns <code>False</code>, but I understand will return an array containing <code>[False,False,False,True]</code> in a future version of Numpy.</p>
+<p>As I mentioned in the comments, your example is incorrect. Future versions of numpy would return <code>[False ,False, False, False]</code>, i.e. False for each element in the array that is not equal to None. This is more consistent with how element-wise comparisons to other scalar values currently work, e.g.:</p>
+</blockquote>
+<pre><code>In [1]: np.array([1, 2, 3, 4]) == 1
+Out[1]: array([ True, False, False, False], dtype=bool)
+
+In [2]: np.array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]) == &#39;b&#39;
+Out[2]: array([False,  True, False, False], dtype=bool)
+</code></pre><blockquote>
+<p>What confuses me is this behaviour of the in keyword with a 1D array compared to a list<br>When you test <code>x</code> in <code>y</code>, you are calling <code>y.__contains__(x)</code>. When y is a list, <code>__contains__</code>basically does something along the lines of this:</p>
+</blockquote>
+<pre><code>for item in y:
+    if (item is x) or (item == x):
+        return True
+return False
+</code></pre><blockquote>
+<p>As far as I can tell, <code>np.ndarray.__contains__(x)</code> performs the equivalent of this:</p>
+</blockquote>
+<pre><code>if any(y == x):
+    return True
+else:
+    return False
+</code></pre><blockquote>
+<p>That is to say it tests element-wise equality over the whole array first (<code>y == x</code> would be a boolean array the size of <code>y</code>). Since in your case you are testing whether <code>y == None</code>, this will raise the FutureWarning for the reasons given above.</p>
+<p>In the comments you also wanted to know why<br><code>np.nan in np.array([1, 2, 3, np.nan])</code><br>returns <code>False</code>, but<br><code>np.nan in [1, 2, 3, np.nan]</code><br>returns <code>True</code>. The first part is easily explained by the fact that <code>np.nan != np.nan</code> (see here for the rationale behind this). To understand why the second case returns True, remember that <code>list.__contains__()</code> first checks for identity (<code>is</code>) before checking equality (<code>==</code>). Since np.nan is <code>np.nan</code>, the second case will return <code>True</code>.</p>
+</blockquote>
+<p>参考链接：</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/33954216/comparison-to-none-will-result-in-an-elementwise-object" target="_blank" rel="external">http://stackoverflow.com/questions/33954216/comparison-to-none-will-result-in-an-elementwise-object</a></li>
+<li><a href="http://stackoverflow.com/questions/28337085/why-does-none-in-numpy-asarray-cause-a-future-warning" target="_blank" rel="external">http://stackoverflow.com/questions/28337085/why-does-none-in-numpy-asarray-cause-a-future-warning</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/10/swig 使用说明/" itemprop="url">
                   swig 使用说明
                 </a>
@@ -730,7 +883,7 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -740,7 +893,7 @@ f = codecs.open(file_name, &#39;w&#39;, &#39;gb2312&#39;)
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
